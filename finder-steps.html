@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog</title>
+    <style>
+        .catalog-grid{
+            display: grid;
+            border: .1em solid #999;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            //grid-gap: 5em;
+            font-size: 15px;
+            font-family: arial;
+        }
+
+        .column{
+            border:  .1em solid #999;
+            padding:  1em;
+        }
+
+        img{
+            display:  block;
+            width:  100%;
+            height:  auto;
+        }
+
+        .selected{
+            outline: .2em solid #333;
+        }
+
+        .grid{
+            display:  grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+            max-width:  500px;
+            margin:  auto;
+        }
+
+        .prev-step-btn, .next-step-btn{
+            position: fixed;
+            top:  50%;
+            transform: translateY(-50%);
+        }
+
+        .prev-step-btn{
+            left:  -200px;
+        }
+
+        .next-step-btn{
+            right:  -200px;
+        }
+
+        .prev-step-btn.active{
+            left:  0;
+            transition: left 1s;
+        }
+
+        .next-step-btn.active{
+            right:  0;
+            transition: right 1s;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    
+
+    <div id="app">
+        <div class="grid">
+            <div class="grid-item">
+                <button class="sku-btn" data-sku="123">
+                    SKU:  123               
+                </button>
+            </div>
+            <div class="grid-item">
+                <button class="sku-btn" data-sku="456">
+                    SKU:  456                
+                </button>
+            </div>
+            <div class="grid-item">
+                <button class="sku-btn" data-sku="789">
+                    SKU:   789                
+                </button>
+            </div>
+        </div>
+
+        <section class="button-container">
+            <button class="prev-step-btn">PREV</button>
+            <button class="next-step-btn">NEXT</button>
+        </section>
+        
+    </div>
+    <script src="finder-data.js"></script>
+    <script>
+        const skuBtns = document.querySelectorAll('.sku-btn');
+        var currentStep = 1;
+
+        for(var skuBtn of skuBtns){
+            skuBtn.addEventListener("click",function(){
+                showPrevAndNextBtns();
+                chooseSku(this); 
+            });
+        }
+
+        function chooseSku(btn) {
+            let sku = btn.getAttribute('data-sku');
+            document.querySelector(".next-step-btn").setAttribute('data-sku', sku);
+        }
+
+        function showPrevBtn(){
+            document.querySelector(".prev-step-btn").classList.add("active");
+        }
+
+        function showNextBtn(){
+            let nextBtn = document.querySelector(".next-step-btn");
+            nextBtn.classList.add("active");
+            nextBtn.addEventListener("click", function(){
+                goToNextStep(nextBtn.getAttribute('data-sku'));
+            });
+        }
+
+        function showPrevAndNextBtns(){
+           if(currentStep == 1){
+                showNextBtn();
+           }else{
+                showPrevBtn();
+                showNextBtn()
+           }
+           console.log("Step: " +currentStep);
+        }
+
+
+
+        function getUnderTones(sku){
+            let obj = finderData.shades[0].options[0]
+            for(let i = 0; obj.length; i++){
+                if(obj.sku == sku){
+                    console.log("match");
+                }
+            }
+        }
+
+        function goToNextStep(btnSku){
+            console.log(btnSku);
+        }
+
+        console.log(finderData.shades[0].options[0]);
+        console.log(finderData.shades[0].options[0].sku);
+        console.log(finderData.shades[0].options[0].undertone);
+
+
+
+    </script>
+</body>
+</html>
