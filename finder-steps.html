@@ -145,6 +145,19 @@
             }
         }
 
+        function moveDataToPrevButton(nextBtn){ 
+            let skinTone  = nextBtn.getAttribute("data-skin-tone");
+            let dataShade = nextBtn.getAttribute("data-shade");
+            let prevBtn = document.querySelector("#app  .btn-prev");
+            prevBtn.classList.remove("disabled");
+            prevBtn.setAttribute("data-skin-tone", skinTone);
+            prevBtn.setAttribute("data-shade", dataShade);
+        }
+
+        document.querySelector("#app  .btn-next").addEventListener("click", function(){
+            moveDataToPrevButton(this)
+        });
+
         function goToNextStep(btnSku){
             console.log(btnSku);
         }
