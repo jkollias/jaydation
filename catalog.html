@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jay Finder</title>
     <style>
+
         .catalog-grid{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             grid-gap: 1em;
             font-size: 20px;
         }
+
+        .catalog-grid button{
+            display: block;
+            width:  100%;
+        }
+
         .shade{
             border:  1px solid #f00;
             height:  100px;
             position: relative;
         }
-
-
-
+ 
         .check-mark{
             position: absolute;
             top: 0;
@@ -53,46 +58,46 @@
         
         <div class="catalog-grid">
             <div class="grid-item">
-                <div class="shade">
+                <button class="shade">
                     <div class="check-mark"></div>
                     <div class="shade-image"><img src=""></div>
                     <div class="shade-description">Blah blah blah</div>
-                </div>
+                </button>
             </div>
             <div class="grid-item">
-                <div class="shade">
+                <button class="shade">
                     <div class="check-mark"></div>
                     <div class="shade-image"><img src=""></div>
                     <div class="shade-description">Blah blah blah</div>
-                </div>
+                </button>
             </div>
             <div class="grid-item">
-                <div class="shade">
+                <button class="shade">
                     <div class="check-mark"></div>
                     <div class="shade-image"><img src=""></div>
                     <div class="shade-description">Blah blah blah</div>
-                </div>
+                </button>
             </div>
             <div class="grid-item">
-                <div class="shade">
+                <button class="shade">
                     <div class="check-mark"></div>
                     <div class="shade-image"><img src=""></div>
                     <div class="shade-description">Blah blah blah</div>
-                </div> 
+                </button> 
             </div>
             <div class="grid-item">
-                <div class="shade">
+                <button class="shade">
                     <div class="check-mark"></div>
                     <div class="shade-image"><img src=""></div>
                     <div class="shade-description">Blah blah blah</div>
-                </div>
+                </button>
             </div>
             <div class="grid-item">
-                <div class="shade">
+                <button class="shade">
                     <div class="check-mark"></div>
                     <div class="shade-image"><img src=""></div>
                     <div class="shade-description">Blah blah blah</div>
-                </div>
+                </button>
             </div>
         </div>
         <nav class="prev-next--btn-container">
@@ -104,19 +109,25 @@
     
 
     <script>
-        const products = document.querySelectorAll(".grid-item div");
-       
+        const products = document.querySelectorAll(".grid-item button");
+
+        function shadeHTML(){
+            
+        }
+        
+        function loopThroughElementsAndRemoveClass(els,cssClass){
+            for(el of els){
+                el.classList.remove(cssClass);
+            }
+        }
 
         function toggleCheckMark(btn, prods){
             
-            if(btn.classList.contains('active')){
-                btn.classList.remove('active');
-                console.log("removing active")
-            } else{
-                for(prod of prods){
-                    prod.classList.remove('active');
-                }
-                btn.classList.add('active');
+            if(btn.classList.contains('active')){ 
+                btn.classList.toggle('active'); 
+            } else { 
+                loopThroughElementsAndRemoveClass(prods,'active');
+                btn.classList.add('active'); 
             }
         }
 
