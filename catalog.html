@@ -3,42 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog</title>
+    <title>Jay Finder</title>
     <style>
         .catalog-grid{
             display: grid;
-            border: .1em solid #999;
             grid-template-columns: 1fr 1fr 1fr 1fr;
-            //grid-gap: 5em;
-            font-size: 15px;
-            font-family: arial;
+            grid-gap: 1em;
+            font-size: 20px;
+        }
+        .shade{
+            border:  1px solid #f00;
+            height:  100px;
+            position: relative;
         }
 
-        .column{
-            border:  .1em solid #999;
-            padding:  1em;
+
+
+        .check-mark{
+            position: absolute;
+            top: 0;
+            right:  0;
+            width:  1em;
+            height:  1em;
+            background: #fff;
+            border-radius: 50%;
+            border:  .1em solid #000;
         }
 
-        img{
-            display:  block;
-            width:  100%;
-            height:  auto;
+        .active .check-mark{
+            background: #fff;
         }
 
-        .selected{
-            outline: .2em solid #333;
+        .active .check-mark::before{
+            content:  "\2713";
+            color:  #000;
+            display: block;
+            position: absolute;
+            top:  50%;
+            left:  50%;
+            transform: translate(-50%,-50%);
         }
-
 
     </style>
 </head>
 <body>
     
-    
 
     <div id="app">
         
+        <div class="catalog-grid">
+            <div class="grid-item">
+                <div class="shade">
+                    <div class="check-mark"></div>
+                    <div class="shade-image"><img src=""></div>
+                    <div class="shade-description">Blah blah blah</div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="shade">
+                    <div class="check-mark"></div>
+                    <div class="shade-image"><img src=""></div>
+                    <div class="shade-description">Blah blah blah</div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="shade">
+                    <div class="check-mark"></div>
+                    <div class="shade-image"><img src=""></div>
+                    <div class="shade-description">Blah blah blah</div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="shade">
+                    <div class="check-mark"></div>
+                    <div class="shade-image"><img src=""></div>
+                    <div class="shade-description">Blah blah blah</div>
+                </div> 
+            </div>
+            <div class="grid-item">
+                <div class="shade">
+                    <div class="check-mark"></div>
+                    <div class="shade-image"><img src=""></div>
+                    <div class="shade-description">Blah blah blah</div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="shade">
+                    <div class="check-mark"></div>
+                    <div class="shade-image"><img src=""></div>
+                    <div class="shade-description">Blah blah blah</div>
+                </div>
+            </div>
+        </div>
+        <nav class="prev-next--btn-container">
+            <button>Back</button>
+            <button>Next</button>
+        </nav>
     </div>
-    <script src="finder-data.js"></script>
+    <script src="product-data.js"></script>
+    
+
+    <script>
+        const products = document.querySelectorAll(".grid-item div");
+       
+
+        function toggleCheckMark(btn, prods){
+            
+            if(btn.classList.contains('active')){
+                btn.classList.remove('active');
+                console.log("removing active")
+            } else{
+                for(prod of prods){
+                    prod.classList.remove('active');
+                }
+                btn.classList.add('active');
+            }
+        }
+
+       
+        for(product of products){
+            product.addEventListener("click", function(){
+                toggleCheckMark(this, products);
+            })
+        }
+
+
+    </script>
+
 </body>
 </html>
