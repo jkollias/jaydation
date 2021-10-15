@@ -1,0 +1,23 @@
+/* Shade finder popup */
+
+.findation-popup--container{
+  position: relative;
+}
+
+.findation-popup--container .btn{
+  width: 100%;
+}
+
+#findation-button-iframe{
+  position: absolute;
+  top: 1em;
+  left: 0;
+  width: 100%!important;
+  height: 100%;
+  opacity: 0;
+}
+
+#findation-iframe{
+  z-index: 10000000!important;
+  width: 100%!important;
+}

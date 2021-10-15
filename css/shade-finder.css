@@ -1,0 +1,164 @@
+ 
+
+
+body{
+  overflow-x: hidden;
+  font-family: "gotham", "open-sans",san-serif;
+}
+
+body .main{
+  font-weight: 300;
+  font-family: "poppins", "gotham","open-sans",san-serif;
+}
+
+
+:root{
+  --heading-size: 24px;
+  --subheading-size: 20px;
+  --body-size: 16px;
+}
+
+@media screen and (min-width: 768px){
+  :root{
+    --heading-size: 38px;
+    --subheading-size: 26px;
+    --body-size: 22px;
+  }
+}
+
+.main h2{
+  font-size: var(--heading-size);
+  margin: 0;
+  padding-top: 1em;  
+}
+
+.main p{
+    font-size: var(--body-size);
+    font-weight: 300;
+    margin-bottom: 2em;
+    padding-top: 1em;
+}
+
+.main img{
+  display: block;
+  width:  100%;
+  height:  auto;
+}
+
+.container{
+    max-width:  1200px;
+    margin:  auto;
+}
+
+.btn,
+.btn-next,
+.btn-prev {
+    display: block;
+    color: #fff;
+    background-color: #000;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align:  center;
+}
+
+.page-banner-row{
+  height: 149vw;
+  position: relative;
+}
+
+@media screen and (min-width: 768px){
+  .page-banner-row{
+    height: 47vw;
+    position: relative;
+  }
+}
+
+.page-intro-text{
+  text-align: center;
+  width: 65%;
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  font-size: 4vw;
+}
+
+@media screen and (min-width: 768px){
+  .page-intro-text{
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: var(--body-size);
+  }
+}
+
+.page-intro-text h2{
+  color: #e49064;
+  font-size: 2em;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 768px){
+  .page-intro-text h2{ 
+    font-size: 1.5em;
+    max-width: 7em;
+    margin-left: auto;
+    margin-right: auto; 
+  }
+}
+
+.page-intro-text p {
+  font-size: 1em;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px){ 
+  .page-intro-text p {
+    max-width: 13em;
+    margin: auto;
+    margin-bottom: 0;   
+  }
+}
+
+@media screen and (min-width: 768px){
+  .page-intro-text{ 
+    width: 30%;
+  }
+}
+
+
+#shade-menu{
+  display: flex;
+  flex-flow: column; 
+  margin: auto;
+  max-width: 12em; 
+}
+
+#shade-menu .btn{
+  margin-top: 1em;
+  display: block;
+  padding: 1em; 
+  font-size: 12px;
+  width: 100%;
+  font-weight: 600; 
+  padding: 1.5em 0;
+  box-sizing: border-box;
+  border: .1em solid #000;
+}
+
+#shade-menu .btn:hover, #shade-menu .btn:active{
+  background: #fff;
+  color: #000;
+}
+
+@media screen and (min-width: 768px){
+  #shade-menu{ display: flex; }
+  #shade-menu .btn{ font-size: .4em; }
+}
+
+@media screen and (min-width: 1000px){
+  #shade-menu{ padding-top: 3em; }
+  #shade-menu .btn{ font-size: .6em; }
+}
+ 

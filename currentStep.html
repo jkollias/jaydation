@@ -1,0 +1,96 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+    <style>
+        .current-step{
+            outline: 1px solid #f00;
+        }
+    </style>
+
+    <div id="step-1" class="current-step">1</div>
+    
+    <div id="step-2">2</div>
+
+    <div id="step-3">3</div>
+
+    <div id="step-4">4 - Final Steps</div>
+
+    <button class="previous-btn" data-prev-step="">
+        Previous Step
+    </button>
+
+    <button class="next-btn" data-next-step="2">
+        Next Step
+    </button>
+
+
+    <script>
+        const prevBtn = document.querySelector(".previous-btn");
+        const nextBtn = document.querySelector(".next-btn");
+
+        function findCurrentStep(){ 
+            let currentStep = document.querySelector(".current-step"); 
+            return currentStep.id;
+        }
+
+        function removeCurrentStepFromSteps(){
+            let steps = ['#step-1', '#step-2', '#step-3', '#step-4']; 
+            for(step of steps){
+                document.querySelector(step).classList.remove("current-step");
+            }  
+        }
+
+        function findNextStep(){ 
+            current = findCurrentStep().replace("step-","");
+            current = parseInt(current, 10); 
+            let nextStep = "step-"+ (current + 1);
+            prevBtn.setAttribute("data-prev-step", findCurrentStep() )
+            nextBtn.setAttribute("data-next-step", nextStep );  
+            return nextStep; 
+        }
+
+        function goToNextStep(){
+            findNextStep();
+            showNextStep();
+        }
+
+        function showNextStep(){
+            nextStep = document.querySelector("#"+findNextStep());
+            removeCurrentStepFromSteps();
+            nextStep.classList.add("current-step");  
+        }
+
+        nextBtn.addEventListener("click", function(){ 
+            goToNextStep();
+        });
+
+
+        function showPrevStep(btn){
+            let prevStep = btn.getAttribute('data-prev-step');
+            let prevStepDiv = document.querySelector("#"+prevStep);
+            removeCurrentStepFromSteps();
+            prevStepDiv.classList.add("current-step");
+            btn.setAttribute('data-prev-step', prevStep - 1);
+            console.log(prevStep);
+        }        
+
+        function goToPreviousStep(){
+            console.log("boo");
+        }
+
+        prevBtn.addEventListener("click", function(){
+            showPrevStep(this);
+        });
+
+        
+
+       
+    </script>
+
+ </body>
+ </html>

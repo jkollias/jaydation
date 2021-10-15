@@ -1,0 +1,66 @@
+/* = Catalog Filter =============== */
+
+.filter-bar--container {
+    display: none;
+    grid-template-columns: .75fr 5fr;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.filter-bar--container.active{
+    display: grid;
+}
+
+.filter-label::after {
+    content: " ";
+}
+
+.filter-label {
+    font-size: 15px;
+}
+
+.filter-bar button {
+    padding: 1em 1.5em;
+    border: 1px solid rgba(239, 239, 239, 1);
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    background: none;
+}
+
+.filter-bar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.filter-bar li {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.filter-bar button.selected-filter-tab {
+    background: rgba(239, 239, 239, 1);
+}
+
+
+@media screen and (max-width: 767px) {
+
+    .filter-label {
+        display: none;
+    }
+
+    .filter-bar li {
+        font-size: 12px;
+    }
+
+}
+
+
+@media screen and (max-width: 767px) {
+    #shade-catalog .filter-bar--container {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,70 @@
+.fair-light--upsell-carousel,
+.medium-deep--upsell-carousel {
+    position: fixed;
+    top: -1000vh;
+}
+
+.fair-light--upsell-carousel.active,
+.medium-deep--upsell-carousel.active {
+    position: relative;
+    top: 0;
+}
+
+.fair-light--upsell-carousel h2.page-title,
+.fair-light--upsell-carousel h3.page-title,
+.medium-deep--upsell-carousel h2.page-title,
+.medium-deep--upsell-carousel h3.page-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.fair-light--upsell-carousel h3.page-title,
+.medium-deep--upsell-carousel h3.page-title {
+    margin-top: 0;
+    font-weight: 300;
+}
+
+.product-options-bottom .price-box .price-container .price,
+.product-info-price .price-box .price-container .price {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 600;
+}
+
+.selected-shade-wrapper.show {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.selected-shade-wrapper.show span {
+    font-size: 0.65em;
+    font-weight: 300;
+    text-transform: capitalize;
+}
+
+.owl-stage {
+    display: flex;
+    align-items: stretch;
+}
+
+.owl-stage .item {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.owl-stage .item>.price {
+    flex-grow: 1;
+}
+
+.owl-stage .item .box-tocart .field.qty {
+    display: none;
+}
+
+.upsell-carousel--container.container .product-add-form.custom .action.primary {
+    background: #ccc;
+    border: 2px solid #ccc;
+    color: 000;
+}

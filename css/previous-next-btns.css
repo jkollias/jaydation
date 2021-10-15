@@ -1,0 +1,101 @@
+/* = Prev Next Buttons  =============== */
+
+.btn-prev:active,
+.btn-next:active,
+.btn-prev:focus,
+.btn-next:focus,
+.btn-prev,
+.btn-next {
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+    line-height: 1;
+    z-index: 1;
+}
+
+.btn-prev:hover,
+.btn-next:hover,
+.btn-prev:active,
+.btn-next:active,
+.btn-prev:focus,
+.btn-next:focus {
+    background: #666;
+}
+
+.btn-prev,
+.btn-next {
+    width: 12em;
+    height: 12em;
+    font-size: 10px;
+    background: #000;
+}
+
+@media screen and (min-width: 1400px) {
+    .btn-prev,
+    .btn-next {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 2100px) {
+    .btn-prev,
+    .btn-next {
+        font-size: 20px;
+    }
+}
+
+.btn-prev {
+    left: -12em;
+    transition: left .5s;
+}
+
+.btn-next {
+    right: -12em;
+    transition: right .5s;
+}
+
+.btn-prev.active {
+    left: -6em;
+    right: auto;
+    transition: left .5s;
+}
+
+.btn-next.active {
+    left: auto;
+    right: -6em;
+    transition: right .5s;
+}
+
+.left-line-arrow--icon,
+.right-line-arrow--icon {
+    display: block;
+    font-size: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 2em;
+}
+
+.right-line-arrow--icon {
+    margin-left: -2em;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.left-line-arrow--icon::before,
+.right-line-arrow--icon::before {
+    font-size: inherit;
+    width: 1em;
+    height: 1em;
+    border: #fff solid .1em;
+    border-left: none;
+    border-bottom: none;
+    display: block;
+    content: " ";
+}
+
+.left-line-arrow--icon::before {
+    transform: rotate(-135deg);
+}

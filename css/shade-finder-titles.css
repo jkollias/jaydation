@@ -1,0 +1,40 @@
+/* = Shade Finder Titles  =============== */
+ 
+.shade-finder--title-blurb{
+    text-align:  center;
+    font-weight: 300;
+    padding-bottom: 2em;
+    padding-top: 2em;
+    font-size: var(--heading-size);
+}
+
+.shade-finder--title-blurb.container{
+    display: block;
+}
+
+
+.shade-finder--title-blurb h2{
+    font-weight: 200;
+}
+
+.shade-finder--title-blurb h2 .highlight-text{
+    font-weight: 300;
+}
+
+
+.shade-finder--title-blurb p{
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+@media screen and (min-width: 768px){
+    .shade-finder--title-blurb p{
+        font-size: 20px;
+    }
+}
+
+.shade-finder--title-blurb strong{
+    font-weight: 600;
+    color:  rgb(158,98,49);
+}

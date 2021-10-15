@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="my-button" data-sku="my_sku" data-hex="my_hex">
+        My Button
+    </button>
+
+    <button class="prev-my-button" >
+        Prev
+    </button>
+
+
+    <script>
+        function pushDataTo(ele, dataObj){ 
+            for(data in dataObj){
+                ele.setAttribute(data, dataObj[data]);
+            }
+        }
+
+        function getDataFrom(ele){
+            atts = ele.attributes; 
+            let obj = {   }; 
+            for (var i = 0;  i < atts.length;  i++) { 
+                if( atts[i].nodeName.includes("data-") ){ 
+                    obj[atts[i].nodeName] = atts[i].nodeValue; 
+                }
+                 
+            }   
+            return obj;
+        }
+
+        function passDataFromNextBtnToPrevBtn() {
+            let nextBtn = document.querySelector('.my-button'); 
+            let prevBtn = document.querySelector('.prev-my-button'); 
+            let dataList = getDataFrom(nextBtn);
+            pushDataTo(prevBtn, dataList);
+        }
+
+       
+
+        passDataFromNextBtnToPrevBtn();
+    </script>
+</body>
+
+</html>

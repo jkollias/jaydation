@@ -1,0 +1,202 @@
+.final-product-grid {
+    display: grid;
+    background: rgb(251, 251, 251);
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+    grid-column-gap: 3em; 
+}
+
+.final-product-grid.container {
+    padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .final-product-grid {
+        display: block;
+    }
+}
+
+.product-info {
+    padding: 20px 0;
+}
+
+.finder-product--title {
+    text-align: center;
+}
+
+.finder-product--title .finder-product--title--name {
+    font-size: 1.25em;
+}
+
+.finder-product--title--subname {
+    font-size: .8em;
+}
+
+.finder-product--title--sku {
+    font-size: 0.65em;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.finder-product--title--sku span {
+    display: inline-flex;
+    height: 10px;
+    width: 10px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.final-product-grid .gallery {
+    max-width: 300px;
+    margin: auto;
+}
+
+.finder-product--price {
+    text-align: center;
+    font-size: 1em;
+    padding: 1em;
+}
+
+.still-not-sure--banner {
+    background: rgb(225, 211, 200);
+    background-image: url("https://www.joahbeauty.com/media/wysiwyg/joah/landing-pages/primedation/img/still-not-sure-banner/still-not-sure-bg.jpg");
+    background-size: auto 100%;
+    background-position: left center;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 1.1fr .7fr;
+    font-size: 15px;
+    padding: 1em 0;
+}
+
+.still-not-sure--banner h2 {
+    padding-bottom: 0;
+    margin: 0;
+}
+
+.still-not-sure--banner p {
+    padding-top: 0;
+}
+
+
+@media screen and (max-width: 767px) {
+    .still-not-sure--banner {
+        display: block;
+        background-image: url("https://www.joahbeauty.com/media/wysiwyg/joah/landing-pages/primedation/img/still-not-sure-banner/still-not-sure--mobile.jpg");
+        background-position: center top;
+    }
+
+    .still-not-sure--banner-image {
+        display: none;
+    }
+
+    .still-not-sure--banner-text {
+        padding-top: 100%;
+        text-align: center;
+    }
+
+    .talk-to-a-pro--btn {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.talk-to-a-pro--btn {
+    border: .2em solid;
+    color: #000;
+    padding: 2em 5em;
+    width: 20em;
+    background: none;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.talk-to-a-pro--btn:hover,
+.talk-to-a-pro--btn:active,
+.talk-to-a-pro--btn:focus {
+    border: .2em solid #fff;
+    background: #fff;
+    color: #000;
+}
+
+.still-not-sure--banner-text,
+.still-not-sure--banner-image {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.still-not-sure--banner-text {
+    flex-flow: column;
+}
+
+.still-not-sure--banner-image img {
+    max-width: 250px;
+    height: auto;
+    width: 100%;
+}
+
+.add-to-cart {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.final-step--add-to-bag {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.final-step--add-to-bag .box-tocart .field.qty {
+    display: none;
+}
+
+.final-step--add-to-bag>h2,
+.final-step--add-to-bag>div {
+    display: none;
+}
+
+.final-step--add-to-bag>div.show {
+    display: block;
+}
+
+.upsell-carousel--container {
+    padding-bottom: 5em;
+    font-size: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .upsell-carousel--container {
+        overflow-x: scroll;
+    }
+
+    .upsell-carousel.no-owl-carousel {
+        width: 225%;
+    }
+}
+
+.upsell-carousel.no-owl-carousel {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: 10px;
+    grid-gap: 5em;
+}
+
+
+
+.upsells {
+    display: flex;
+    flex-flow: column;
+    font-size: var(--body-size);
+    height: 100%;
+}
+
+.upsells .price {
+    flex-grow: 1;
+}
+
+.upsells .atb {
+    margin-top: auto;
+}

@@ -1,0 +1,102 @@
+/* = Grid Items  =============== */
+
+.check-mark {
+    position: absolute;
+    top: .125em;
+    right: .125em;
+    border-radius: 50%;
+    border: .1em solid #fff;
+    width: 1em;
+    height: 1em;
+    font-size: 30px;
+    display: block;
+    z-index: 1;
+}
+
+
+
+button.item:hover .check-mark,
+.active .check-mark {
+    top: .125em;
+    right: .125em;
+}
+
+.active .check-mark {
+    background: rgba(253, 253, 253);
+}
+
+.active .check-mark::before {
+    content: '\2713';
+    position: absolute;
+    font-size: 1.15em;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    color: rgba(0, 0, 0);
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 1em;
+    grid-column-gap: 4px;
+    font-size: 10px;
+}
+
+.grid-item {
+    padding: 1em 0;
+}
+
+button.item {
+    position: relative;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+}
+
+button.item .desc {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    background: rgba(223, 181, 154, 1);
+    color: #fff;
+    padding: 1em;
+    font-size: 10px;
+    width: 100%;
+    box-sizing:  border-box;
+}
+
+button.item:hover img,
+button.item.active img {
+    transform: scale(1.5);
+}
+
+button.item:hover .desc,
+button.item.active .desc {
+    display: block;
+}
+
+
+
+.shade {
+    overflow: hidden;
+    padding: 1em 0;
+}
+
+.skin-tone h3 {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+    padding: 2em 0;
+    font-family: poppins;
+}
+
+
+#find-shade .shade:hover img,
+#find-shade .shade.active img {
+    transform: scale(1.1);
+}
+
+.desc {
+    text-align: center;
+}

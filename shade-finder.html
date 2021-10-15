@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shade Finder</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/shade-finder.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="https://www.joahbeauty.com/static/version1633032527/frontend/Kiss/joah/en_US/Mageplaza_Blog/css/mpBlogIcon.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="https://www.joahbeauty.com/static/version1633032527/frontend/Kiss/joah/en_US/css/styles-m.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="https://www.joahbeauty.com/static/version1633032527/frontend/Kiss/joah/en_US/mage/gallery/gallery.css" />
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="https://www.joahbeauty.com/static/version1633032527/frontend/Kiss/joah/en_US/css/styles-l.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="https://www.joahbeauty.com/static/version1633032527/frontend/Kiss/joah/en_US/css/print.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="https://www.joahbeauty.com/static/version1633032527/frontend/Kiss/joah/en_US/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="https://www.joahbeauty.com/static/version1633032527/frontend/Kiss/joah/en_US/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="https://www.joahbeauty.com/static/version1633032527/frontend/Kiss/joah/en_US/fonts/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="https://www.joahbeauty.com/static/version1633032527/frontend/Kiss/joah/en_US/fonts/gotham/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="https://www.joahbeauty.com/static/version1633032527/frontend/Kiss/joah/en_US/fonts/poppins/css/all.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="https://www.joahbeauty.com/static/version1633032527/frontend/Kiss/joah/en_US/css/joah_styling.css" />
+    <link rel="preload" as="font" crossorigin="anonymous" href="https://www.joahbeauty.com/static/version1633032527/frontend/Kiss/joah/en_US/fonts/Luma-Icons.woff2" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <link rel="stylesheet" type="text/css" media="all" href="css/shade-finder.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/shade-finder-titles.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/shade-finder-filter.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/shade-finder--popup.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/previous-next-btns.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/grid-items.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/steps-1-2-3.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/final-step.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/final-step--carousel.css" />
+    <style>
+    body {
+        font-family: arial;
+    }
+
+    .main {
+        font-family: 'Poppins', sans-serif;
+    }
+    </style>
+    <main class="main">
+        <!-- MAIN MENU -->
+        <div id="shade-menu">
+            <div class="btn popup-btn find-my-shade-btn" data-screen="find-shade">Find My Shade</div>
+            <div class="btn" onclick="window.open('https://joahbeauty.setmore.com/', '_blank');">Consult An Expert</div>
+            <div class="btn popup-btn view-shades-btn" data-screen="shade-catalog">View All Shades</div>
+        </div>
+        <section class="finder-popup" aria-hidden="true">
+            <section class="finder-popup-top-banner">
+                <div>
+                    <div class="finder-popup-banner-grid">
+                        <div class="logo-item">
+                            <img src="{{media url=wysiwyg/joah/landing-pages/primedation/img/popup-top-bar/joah-white-logo.png}}" alt="JOAH Logo" />
+                        </div>
+                        <div class="popup-title--item">
+                            <h2>SHADEFINDER</h2>
+                        </div>
+                        <div class="popup-close--item">
+                            <button class="close-popup--btn">
+                                <div class="screen-reader-text">Close Popup Button</div>
+                                <div class="close-icon"></div>
+                            </button>
+                        </div>
+                    </div>
+            </section>
+            <div class="overflow-scroll">
+                <section class="popup-content">
+                    <div id="top"></div>
+                    <div id="find-shade">
+                        
+                        <section class="filter-bar--container">
+                            <div class="filter-label">Filter <span class="filter-arrow-icon"></span></div>
+                            <div class="filter-bar">
+                                <ul>
+                                    <li><button data-filter="All" class="selected-filter-tab">All</button></li>
+                                    <li><button data-filter="Fair">Fair</button></li>
+                                    <li><button data-filter="Light">Light</button></li>
+                                    <li><button data-filter="Medium">Medium</button></li>
+                                    <li><button data-filter="Deep">Deep</button></li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <div class="shade-finder--title-blurb container" id="dynamic-title">
+                        </div>
+                        <!-- SELECT SKIN TONE (FAIR, LIGHT, MEDIUM, DEEP)  -->
+                        <div id="step-1">
+                            <h2>Step 1</h2>
+                            
+                            <div class="container">
+                                <div class="find-my-shade--grid"></div>
+                                <div class="catalog-grid"></div>
+                            </div>
+                        </div>
+                        <!-- SELECT UNDERTONE -->
+                        <div id="step-2" class="container">
+                            <div class="undertone-flex-row">
+                                <div class="box" data-undertone="cool">
+                                    <div class="white-border">
+                                        <h2>Cool</h2>
+                                        <ul>
+                                            <li>Hints of pink or blue in your complexion</li>
+                                            <li>Skin burns easily and you rarely tan</li>
+                                            <li>Veins appear blue/purple</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="box" data-undertone="neutral">
+                                    <div class="white-border">
+                                        <h2>Neutral</h2>
+                                        <ul>
+                                            <li>Complexion is not too pink, not too yellow</li>
+                                            <li>Skin tans, but may also burn</li>
+                                            <li>Veins appear blue/green</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="box" data-undertone="warm">
+                                    <div class="white-border">
+                                        <h2>Warm</h2>
+                                        <ul>
+                                            <li>Yellow, golden, peach undertones</li>
+                                            <li>Skin tans easily</li>
+                                            <li>Veins on wrist appear green</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- IF MORE THAN 1 PRODUCT AFTER STEP 2 -->
+                        <div id="step-3">
+                            <div class="products"></div>
+                        </div>
+                        <!-- PURCHASE SLIDE (MEET YOUR PERFECT MATCH) -->
+                        <div id="step-4">
+                            <div class="final-product-grid container">
+                                <div class="large-image"><img src="" alt=""></div>
+                                <div class="product-info">
+                                    <div class="finder-product--title">
+                                        <div class="finder-product--title--name"></div>
+                                        <div class="finder-product--title--subname"></div>
+                                        <div class="finder-product--title--sku"><span></span></div>
+                                    </div>
+                                    <div class="gallery"></div>
+                                    <div class="finder-product--price"></div>
+                                    <section class="final-step--add-to-bag">
+                                        <h2 class="sku-heading">PFC010</h2>
+                                        <div class="add-to-bag-pfc010">
+                                            {{block sku="PFC010" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PFN020</h2>
+                                        <div class="add-to-bag-pfn020">
+                                            {{block sku="PFN020" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PFN030</h2>
+                                        <div class="add-to-bag-pfn030">
+                                            {{block sku="PFN030" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PFC040</h2>
+                                        <div class="add-to-bag-pfc040">
+                                            {{block sku="PFC040" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PFC050</h2>
+                                        <div class="add-to-bag-pfc050">
+                                            {{block sku="PFC050" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PLC030</h2>
+                                        <div class="add-to-bag-plc030">
+                                            {{block sku="PLC030" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PLN040</h2>
+                                        <div class="add-to-bag-pln040">
+                                            {{block sku="PLN040" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PLN050</h2>
+                                        <div class="add-to-bag-pln050">
+                                            {{block sku="PLN050" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PLW060</h2>
+                                        <div class="add-to-bag-plw060">
+                                            {{block sku="PLW060"class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PMN010</h2>
+                                        <div class="add-to-bag-pmn010">
+                                            {{block sku="PMN010" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PMW020</h2>
+                                        <div class="add-to-bag-pmw020">
+                                            {{block sku="PMW020" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PMW030</h2>
+                                        <div class="add-to-bag-pmc030">
+                                            {{block sku="PMC030" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PMW040</h2>
+                                        <div class="add-to-bag-pmw040">
+                                            {{block sku="PMW040" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PMW050</h2>
+                                        <div class="add-to-bag-pmw050">
+                                            {{block sku="PMW040" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PMW060</h2>
+                                        <div class="add-to-bag-pmn060">
+                                            {{block sku="PMN060" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PMW070</h2>
+                                        <div class="add-to-bag-pmw070">
+                                            {{block sku="PMW070" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PTW010</h2>
+                                        <div class="add-to-bag-ptw010">
+                                            {{block sku="PTW010" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PTN030</h2>
+                                        <div class="add-to-bag-ptn030">
+                                            {{block sku="PTN030" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PTN040</h2>
+                                        <div class="add-to-bag-ptn040">
+                                            {{block sku="PTN040" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PTW050</h2>
+                                        <div class="add-to-bag-ptw050">
+                                            {{block sku="PTW050" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PTN080</h2>
+                                        <div class="add-to-bag-ptn080">
+                                            {{block sku="PTN080" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PTN090</h2>
+                                        <div class="add-to-bag-ptn090">
+                                            {{block sku="PTN090" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PTW110</h2>
+                                        <div class="add-to-bag-ptw110">
+                                            {{block sku="PTW110" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                        <h2 class="sku-heading">PDW010</h2>
+                                        <div class="add-to-bag-pdw010">
+                                            {{block sku="PDW010" class="Kiss\LandingPage\Block\Cms" name="landing.page" template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="shade-finder--title-blurb container">
+                                <h2>Complete The Look</h2>
+                            </div>
+                            <section class="upsell-carousel--container container">
+                                <div class="fair-light--upsell-carousel owl-carousel">
+                                    <div class="item">
+                                        <div class="catalog-image">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG"
+                                            template="Kiss_LandingPage::product/main_image.phtml"}}
+                                        </div>
+                                        <div class="catalog-name">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG"
+                                            template="Kiss_LandingPage::product/name.phtml"}}
+                                        </div>
+                                        <div class="price">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG"
+                                            template="Kiss_LandingPage::product/price.phtml"}}
+                                        </div>
+                                        <div class="lp-add-to-cart">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG"
+                                            template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                    </div><!-- item -->
+                                    <div class="item">
+                                        <div class="catalog-image">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG02"
+                                            template="Kiss_LandingPage::product/main_image.phtml"}}
+                                        </div>
+                                        <div class="catalog-name">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG02"
+                                            template="Kiss_LandingPage::product/name.phtml"}}
+                                        </div>
+                                        <div class="price">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG02"
+                                            template="Kiss_LandingPage::product/price.phtml"}}
+                                        </div>
+                                        <div class="lp-add-to-cart">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG02"
+                                            template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                    </div><!-- item -->
+                                    <div class="item">
+                                        <div class="catalog-image">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JAM"
+                                            template="Kiss_LandingPage::product/main_image.phtml"}}
+                                        </div>
+                                        <div class="catalog-name">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JAM"
+                                            template="Kiss_LandingPage::product/name.phtml"}}
+                                        </div>
+                                        <div class="price">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JAM"
+                                            template="Kiss_LandingPage::product/price.phtml"}}
+                                        </div>
+                                        <div class="lp-add-to-cart">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JAM"
+                                            template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                    </div><!-- item -->
+                                </div><!-- fair-light--upsell-carousel -->
+                                <div class="medium-deep--upsell-carousel owl-carousel">
+                                    <div class="item">
+                                        <div class="catalog-image">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG"
+                                            template="Kiss_LandingPage::product/main_image.phtml"}}
+                                        </div>
+                                        <div class="catalog-name">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG"
+                                            template="Kiss_LandingPage::product/name.phtml"}}
+                                        </div>
+                                        <div class="price">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG"
+                                            template="Kiss_LandingPage::product/price.phtml"}}
+                                        </div>
+                                        <div class="lp-add-to-cart">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG"
+                                            template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                    </div><!-- item -->
+                                    <div class="item">
+                                        <div class="catalog-image">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG01"
+                                            template="Kiss_LandingPage::product/main_image.phtml"}}
+                                        </div>
+                                        <div class="catalog-name">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG01"
+                                            template="Kiss_LandingPage::product/name.phtml"}}
+                                        </div>
+                                        <div class="price">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG01"
+                                            template="Kiss_LandingPage::product/price.phtml"}}
+                                        </div>
+                                        <div class="lp-add-to-cart">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JCG01"
+                                            template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                    </div><!-- item -->
+                                    <div class="item">
+                                        <div class="catalog-image">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JAM"
+                                            template="Kiss_LandingPage::product/main_image.phtml"}}
+                                        </div>
+                                        <div class="catalog-name">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JAM"
+                                            template="Kiss_LandingPage::product/name.phtml"}}
+                                        </div>
+                                        <div class="price">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JAM"
+                                            template="Kiss_LandingPage::product/price.phtml"}}
+                                        </div>
+                                        <div class="lp-add-to-cart">
+                                            {{block
+                                            class="Kiss\LandingPage\Block\Cms"
+                                            name="landing.page"
+                                            sku="JAM"
+                                            template="Kiss_LandingPage::product/addtocart.phtml"}}
+                                        </div>
+                                    </div><!-- item -->
+                                </div><!-- fair-light--upsell-carousel -->
+                            </section>
+                            <section class="still-not-sure--banner container">
+                                <div class="still-not-sure--banner-image">
+                                    <img src="https://www.joahbeauty.com/media/wysiwyg/joah/landing-pages/primedation/img/still-not-sure-banner/still-not-sure-portrait2.jpg">
+                                </div>
+                                <div class="still-not-sure--banner-text">
+                                    <h2>Still not sure?</h2>
+                                    <p>Let us help your shade match.</p>
+                                    <button class="talk-to-a-pro--btn" onclick="window.open('https://joahbeauty.setmore.com/', '_blank');">Talk to A Pro</button>
+                                </div>
+                            </section>
+                        </div>
+                    </div><!-- find-shade -->
+                     
+                </section>
+
+            </div><!-- overflow scroll -->
+            <section class="finder-btn-container">
+                <div class="btn-prev">
+                    <span class="screen-reader-text">Previous</span>
+                    <span class="left-line-arrow--icon"></span>
+                </div>
+                <div class="btn-next">
+                    <span class="screen-reader-text">Next</span>
+                    <span class="right-line-arrow--icon"></span>
+                </div>
+            </section><!-- btn-container -->
+            
+        </section>
+    </main>
+
+   <!--  <script src="js/steps.js"></script> -->
+    <script src="js/catalog-products.js"></script>
+    <script src="js/shade-finder-products.js"></script>
+    <script src="js/app-functions.js"></script>
+    <script src="js/filter-bar.js"></script>
+    
+</body>
+
+</html>
